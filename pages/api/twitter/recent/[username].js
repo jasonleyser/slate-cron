@@ -19,10 +19,8 @@ const UploadFile = async (props) => {
     });
 
     const json = await upload.json();
-    //console.log('json', json)
-    let fileMeta = json.data;
-    console.log(fileMeta);
 
+    let fileMeta = json.data;
     let time_stamp = props.created_at.split('+')[0];
 
     fileMeta.data = {
@@ -38,16 +36,13 @@ const UploadFile = async (props) => {
         },
         body: JSON.stringify({ data: fileMeta }),
     });
-    console.log("done upload");
+    
     return fileMeta;
 };
 
-//export
 export default function handler(req, res) {
 
-    const {
-        query: { username, api, collection },
-    } = req;
+    const { query: { username, api, collection }} = req;
 
     var client = new Twitter({
         consumer_key: process.env.TWITTER_API,
@@ -74,7 +69,6 @@ export default function handler(req, res) {
             return res.status(200).json({ error: 'No media in recent tweet' })
         }
 
-        console.log('tweets')
         let upload = await UploadFile({
             url: tweets[0].entities.media[0].media_url_https,
             source: tweets[0].text,

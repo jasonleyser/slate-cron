@@ -1,6 +1,3 @@
-import useSwr from 'swr'
-import Link from 'next/link'
-
 export default function Index() {
   return (
     <div style={{ position: 'absolute', backgroundColor: "#fdfdfd", width: '100vw', height: '100vh', top: '0', left: '0' }}>
@@ -20,24 +17,3 @@ export default function Index() {
     </div>
   )
 }
-
-/*
-const users = [
-  { account: 'archillect', freq: 'Hourly' }, 
-  { account: 'filecoin', freq: 'Daily' }, 
-]
-export default function Index() {
-    return (
-        <div style={{ position: 'absolute', backgroundColor: "#fdfdfd", width: '100vw', height: '100vh', top: '0', left: '0' }}>
-      <div style={{ position: 'absolute', width: '200px', height: 'auto', left: '48%', top: '48%' }}>
-        <table>
-          {users.map((user) => (
-            <td>@${user.account}</td>
-            <td>${user.freq}</td>
-          ))}
-        </table>
-      </div>
-    </div>
-    )
-}
-*/
