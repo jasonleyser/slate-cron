@@ -5,6 +5,7 @@ const users = [
     { account: 'wayback', collection: 'exe', freq: '6 hours', run_time: '2:22, 8:22' },
     { account: '90s_nba', collection: 'photos', freq: '6 hours', run_time: '10:00, 6:00' },
     { account: 'moma', collection: 'objects', freq: '4 hours', run_time: '10:05, 2:05, 6:05' },
+    { account: 'artistkandinsky', collection: 'art', freq: '12 hours', run_time: '10:05, 2:05, 6:05' },
 ];
 
 export default function List() {
@@ -16,7 +17,7 @@ export default function List() {
 
         <div style={{ position: 'absolute', backgroundColor: "#fdfdfd", top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontFamily: 'Inter' }}>
           <div>
-            <table style={{ width: '500px', border: '1px solid #fdfdfd', borderCollapse: 'collapse', overflow: 'hidden', boxShadow: '0 0 20px rgba(0,0,0,0.1)', borderRadius: '4px' }}>
+            <table style={{ borderSpacing: '0 50px', width: '500px', border: '1px solid #fdfdfd', borderCollapse: 'collapse', overflow: 'hidden', boxShadow: '0 0 20px rgba(0,0,0,0.1)', borderRadius: '4px' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #cacaca' }}>
                   <th>Account</th>
@@ -26,7 +27,7 @@ export default function List() {
               {users.map((user) => (
                 <tr style={{ borderSpacing: '20px' }}>
                   <th>
-                    <a target="_blank" href={`https://slate.host/${user.account}/${user.collection}`}>
+                    <a style={{ textDecoration: 'none', color: '#0566BB', marginTop: '8px' }} target="_blank" href={`https://slate.host/${user.account}/${user.collection}`}>
                       @{user.account}/{user.collection}
                     </a>
                   </th>
