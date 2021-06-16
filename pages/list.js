@@ -1,7 +1,8 @@
 import Head from 'next/head'
 
 const users = [
-    { account: 'archillect', collection: 'photos', freq: 'hourly', run_time: 'xx:26' },
+    { account: 'archillect', collection: 'photos', freq: '2 hours', run_time: 'xx:26' },
+    { account: 'gradient', collection: 'bot', freq: '2 hours', run_time: 'xx:26' },
     { account: 'moma', collection: 'objects', freq: '4 hours', run_time: '10:05, 2:05, 6:05' },
     { account: 'jet', collection: 'photos', freq: '4 hours', run_time: '10:05, 2:05, 6:05' },
     { account: 'wayback', collection: 'exe', freq: '6 hours', run_time: '2:22, 8:22' },
