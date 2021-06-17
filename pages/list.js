@@ -12,7 +12,8 @@ const users_twitter = [
 ];
 
 const users_reddit = [
-    { account: 'reddit_art', collection: 'typography', freq: '4 hours', run_time: 'xx:26' },
+    { account: 'reddit_art', collection: 'pictures', freq: '4 hours', run_time: 'xx:26' },
+    { account: 'mechanicalkeyboards', collection: 'photos', freq: '4 hours', run_time: 'xx:26' },
 ];
 
 export default function List() {

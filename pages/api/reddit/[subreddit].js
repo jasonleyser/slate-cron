@@ -25,7 +25,7 @@ const UploadFile = async (props) => {
 
     fileMeta.data = {
         source: props.source,
-        name: `${props.screen_name} r/art`,
+        name: `${props.screen_name} r/${props.subreddit}`,
         body: props.description,
         author: profileLink
     };
@@ -69,6 +69,7 @@ export default function handler(req, res) {
             created_at: data.createdUtc,
             screen_name: data.author,
             description: data.title,
+            subreddit: subreddit,
             api: api,
             collection: collection,
         });
