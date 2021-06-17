@@ -43,21 +43,36 @@ const UploadFile = async (props) => {
 };
 
 export default function handler(req, res) {
-  const { query: { subreddit, api, collection }} = req;
+    const { query: { subreddit, api, collection }} = req;
 
-  reddit.FetchSubredditPost(subreddit, "hot").then(async (data) => {
-    console.log(data);
+    if (!subreddit) {
+        return res.status(200).json({ error: 'No username provided' })
+    }
 
-    let upload = await UploadFile({
-        url: data.image,
-        source: data.postLink,
-        created_at: data.createdUtc,
-        screen_name: data.author,
-        description: data.title,
-        api: api,
-        collection: collection,
+    if (!api) {
+        return res.status(200).json({ error: 'No api key provided' })
+    }
+
+    if (!collection) {
+        return res.status(200).json({ error: 'No collection id provided' })
+    }
+
+    reddit.FetchSubredditPost(subreddit, "hot").then(async (data) => {
+        
+        if(!data.image.endsWith('jpg')) {
+            return res.status(200).json({ error: "No image in post" })
+        }
+
+        let upload = await UploadFile({
+            url: data.image,
+            source: data.postLink,
+            created_at: data.createdUtc,
+            screen_name: data.author,
+            description: data.title,
+            api: api,
+            collection: collection,
+        });
+
+        return res.status(200).json({ data: data })
     });
-
-    return res.status(200).json({ data: data })
-  });
 };
