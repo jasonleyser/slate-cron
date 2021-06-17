@@ -21,7 +21,7 @@ const UploadFile = async (props) => {
     const json = await upload.json();
 
     let fileMeta = json.data;
-    let profileLink - `https://reddit.com/user/${props.screen_name}`;
+    let profileLink = `https://reddit.com/user/${props.screen_name}`;
 
     fileMeta.data = {
         source: props.source,
