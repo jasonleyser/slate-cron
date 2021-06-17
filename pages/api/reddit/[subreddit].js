@@ -21,13 +21,13 @@ const UploadFile = async (props) => {
     const json = await upload.json();
 
     let fileMeta = json.data;
-    console.log(fileMeta)
+    let profileLink - `https://reddit.com/user/${props.screen_name}`;
 
     fileMeta.data = {
         source: props.source,
         name: `${props.screen_name} r/art`,
         body: props.description,
-        author: props.screen_name
+        author: profileLink
     };
 
     const responseMeta = await Fetch('https://slate.host/api/v2/update-file', {
@@ -58,7 +58,7 @@ export default function handler(req, res) {
     }
 
     reddit.FetchSubredditPost(subreddit, "hot").then(async (data) => {
-        
+
         if(!data.image.endsWith('jpg')) {
             return res.status(200).json({ error: "No image in post" })
         }
@@ -73,6 +73,6 @@ export default function handler(req, res) {
             collection: collection,
         });
 
-        return res.status(200).json({ data: data })
+        return res.status(200).json({ data: upload })
     });
 };
