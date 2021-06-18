@@ -48,41 +48,32 @@ export default function handler(req, res) {
 
 	const { query: { ids, api, collection }} = req;
 
-	//console.log('ids:', ids)
-	var nameArr = ids.split(',');
-	var randomItem = nameArr[Math.floor(Math.random()* nameArr.length)];
-	console.log('randomItem1234: ', randomItem)
+	const idArr = ids.split(',');
+	const randomId = idArr[Math.floor(Math.random()* idArr.length)];
 
-	var flickr = new Flickr('9ce09b32368da91bdaafcf9c706f1d19');
+	const flickr = new Flickr('9ce09b32368da91bdaafcf9c706f1d19');
 
-	flickr.galleries.getPhotos({ gallery_id: randomItem }).then(async (main) => {
+	flickr.galleries.getPhotos({ gallery_id: randomId }).then(async (main) => {
 
 		const num = main.body.photos.total - 1;
 		const rndInt = Math.floor(Math.random() * num);
-		//console.log(rndInt)
 
-		let photoId = main.body.photos.photo[rndInt].id;
-		//console.log('data::::', main.body.photos.photo[rndInt])
-		var photoTitle = main.body.photos.photo[rndInt].title;
+		const photoId = main.body.photos.photo[rndInt].id;
+		const photoTitle = main.body.photos.photo[rndInt].title;
 
 		flickr.photos.getInfo({ photo_id: photoId }).then(async (photoData) => {
-			//console.log('photo 12341234: ', photoData.body)
-			var data = photoData.body;
+			const data = photoData.body;
 
 			flickr.photos.getSizes({ photo_id: photoData.body.photo.id }).then(async (photo) => {
-			  console.log('yay!!!!!!!!!', data.photo.owner.path_alias);
-			  console.log('owner!!!!!!!!!', data.photo.owner);
-			  let photo123 = photo.body.sizes.size;
+			  let allPhotoSizes = photo.body.sizes.size;
 
-			  const imageSize = photo123.filter(photo => photo.label == 'Original' || photo.label == 'Large');
+			  const imageSize = allPhotoSizes.filter(photo => photo.label == 'Original' || photo.label == 'Large');
 
 			  if(!imageSize) {
 			  	return res.status(200).json({ error: 'No image file found' })
 			  }
 
 			  const description = data.photo.title._content + data.photo.description._content;
-			  //console.log('description', description)
-
 			  const photoUrl = imageSize[0].source;
 			
 			  let upload = await UploadFile({
