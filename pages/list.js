@@ -12,8 +12,11 @@ const users_twitter = [
 ];
 
 const users_reddit = [
+    { account: 'graphicdesign', collection: 'visuals', freq: '3 hours', run_time: 'xx:26' },
     { account: 'analog', collection: 'photography', freq: '3 hours', run_time: 'xx:26' },
+    { account: 'redditart', collection: 'glitch', freq: '3 hours', run_time: 'xx:26' },
     { account: 'redditart', collection: 'pictures', freq: '4 hours', run_time: 'xx:26' },
+    { account: 'redditart', collection: 'typography', freq: '4 hours', run_time: 'xx:26' },
     { account: 'mechanicalkeyboards', collection: 'photos', freq: '4 hours', run_time: 'xx:26' },
     { account: 'sports', collection: 'photography', freq: '4 hours', run_time: 'xx:26' },
 ];
