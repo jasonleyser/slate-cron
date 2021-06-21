@@ -19,6 +19,7 @@ const users_reddit = [
     { account: 'redditart', collection: 'typography', freq: '4 hours', run_time: 'xx:26' },
     { account: 'mechanicalkeyboards', collection: 'photos', freq: '4 hours', run_time: 'xx:26' },
     { account: 'sports', collection: 'photography', freq: '4 hours', run_time: 'xx:26' },
+    { account: 'itookapicture', collection: 'work', freq: '4 hours', run_time: 'xx:26' },
 ];
 
 export default function List() {
