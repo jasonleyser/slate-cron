@@ -32,7 +32,7 @@ export default function List() {
             <table style={{ borderSpacing: '0 50px', width: '500px', border: '1px solid #fdfdfd', borderCollapse: 'collapse', overflow: 'hidden', boxShadow: '0 0 20px rgba(0,0,0,0.1)', borderRadius: '4px' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid #cacaca' }}>
-                  <th><img src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png" width="24px" /></th>
+                  <th><img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-logo-vector-png-clipart-1.png" width="24px" /></th>
                   <th>Account</th>
                   <th>Frquency</th>
                 </tr>
