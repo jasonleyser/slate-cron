@@ -59,7 +59,7 @@ export default function handler(req, res) {
 
     reddit.FetchSubredditPost(subreddit, "hot").then(async (data) => {
 
-        if(!data.image.endsWith({ "jpg", "jpeg", "png" })) {
+        if(!data.image.endsWith("jpg", "jpeg", "png")) {
             return res.status(200).json({ error: "No image in post" })
         }
 
