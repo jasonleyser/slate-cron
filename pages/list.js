@@ -12,6 +12,7 @@ const users_twitter = [
 ];
 
 const users_reddit = [
+    { account: 'dataisbeautiful', collection: 'visualizations', freq: '3 hours', run_time: 'xx:26' },  
     { account: 'woodworking', collection: 'projects', freq: '3 hours', run_time: 'xx:26' },
     { account: 'oldschoolcool', collection: 'photos', freq: '3 hours', run_time: 'xx:26' },
     { account: 'graphicdesign', collection: 'visuals', freq: '3 hours', run_time: 'xx:26' },
@@ -22,6 +23,7 @@ const users_reddit = [
     { account: 'mechanicalkeyboards', collection: 'photos', freq: '4 hours', run_time: 'xx:26' },
     { account: 'sports', collection: 'photography', freq: '4 hours', run_time: 'xx:26' },
     { account: 'itookapicture', collection: 'work', freq: '4 hours', run_time: 'xx:26' },
+    { account: 'wallpaper', collection: 'desktops', freq: '4 hours', run_time: 'xx:26' },     
 ];
 
 export default function List() {
@@ -45,7 +47,7 @@ export default function List() {
                   <th></th>
                   <th>
                     <a style={{ textDecoration: 'none', color: '#0566BB', marginTop: '8px' }} target="_blank" href={`https://slate.host/${user.account}/${user.collection}`}>
-                      @{user.account}/{user.collection}
+                      {user.account}/{user.collection}
                     </a>
                   </th>
                   <th>{user.freq}</th>
