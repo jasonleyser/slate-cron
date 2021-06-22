@@ -70,7 +70,7 @@ export default function List() {
                   <th></th>
                   <th>
                     <a style={{ textDecoration: 'none', color: '#0566BB', marginTop: '8px' }} target="_blank" href={`https://slate.host/${user.account}/${user.collection}`}>
-                      @{user.account}/{user.collection}
+                      {user.account}/{user.collection}
                     </a>
                   </th>
                   <th>{user.freq}</th>
