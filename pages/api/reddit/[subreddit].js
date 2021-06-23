@@ -59,7 +59,9 @@ export default function handler(req, res) {
 
     reddit.FetchSubredditPost(subreddit, "hot").then(async (data) => {
 
-        if(data.image.endsWith("jpg") || data.image.endsWith("jpeg") || data.image.endsWith("png")) {
+        console.log(data)
+
+        if(data.image.endsWith("jpg") || data.image.endsWith("jpeg") || data.image.endsWith("png") || data.image.endsWith("gif")) {
             var fileType = data.image.substr(data.image.length - 3);
 
             let upload = await UploadFile({
@@ -73,7 +75,7 @@ export default function handler(req, res) {
                 api: api,
                 collection: collection,
             });
-            
+
             return res.status(200).json({ data: upload })
         }
 
