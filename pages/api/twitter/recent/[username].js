@@ -8,10 +8,10 @@ const UploadFile = async (props) => {
     const buffer = await response.buffer();
     const url = `https://uploads.slate.host/api/public/${props.collection}`;
 
-    let fileType = props.url.substr(props.url.length - 3);
+    //let fileType = props.url.substr(props.url.length - 3);
 
     let data = new FormData();
-    data.append("data", buffer, { filename: `${props.screen_name}-twitter.${fileType}` });
+    data.append("data", buffer, { filename: `${props.screen_name}-twitter.jpeg` });
     const upload = await Fetch(url, {
         method: 'POST',
         headers: {
