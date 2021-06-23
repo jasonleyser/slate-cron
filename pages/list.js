@@ -1,29 +1,30 @@
 import Head from 'next/head'
 
 const users_twitter = [
-    { account: 'archillect', collection: 'photos', freq: '2 hours', run_time: 'xx:26' },
-    { account: 'gradient', collection: 'bot', freq: '2 hours', run_time: 'xx:26' },
-    { account: 'moma', collection: 'objects', freq: '4 hours', run_time: '10:05, 2:05, 6:05' },
-    { account: 'jet', collection: 'photos', freq: '4 hours', run_time: '10:05, 2:05, 6:05' },
-    { account: 'wayback', collection: 'exe', freq: '6 hours', run_time: '2:22, 8:22' },
-    { account: '90snba', collection: 'photos', freq: '6 hours', run_time: '10:00, 6:00' },
-    { account: 'photoinreallife', collection: 'locations', freq: '6 hours', run_time: '10:05, 2:05, 6:05' },
-    { account: 'artistkandinsky', collection: 'art', freq: '12 hours', run_time: '10:05, 2:05, 6:05' },
+    { account: 'archillect', collection: 'photos', freq: '2 hours' },
+    { account: 'gradient', collection: 'bot', freq: '2 hours' },
+    { account: 'moma', collection: 'objects', freq: '4 hours' },
+    { account: 'jet', collection: 'photos', freq: '4 hours' },
+    { account: 'wayback', collection: 'exe', freq: '6 hours' },
+    { account: '90snba', collection: 'photos', freq: '6 hours' },
+    { account: 'photoinreallife', collection: 'locations', freq: '6 hours' },
+    { account: 'artistkandinsky', collection: 'art', freq: '12 hours' },
 ];
 
 const users_reddit = [
-    { account: 'dataisbeautiful', collection: 'visualizations', freq: '3 hours', run_time: 'xx:26' },  
-    { account: 'woodworking', collection: 'projects', freq: '3 hours', run_time: 'xx:26' },
-    { account: 'oldschoolcool', collection: 'photos', freq: '3 hours', run_time: 'xx:26' },
-    { account: 'graphicdesign', collection: 'visuals', freq: '3 hours', run_time: 'xx:26' },
-    { account: 'analog', collection: 'photography', freq: '3 hours', run_time: 'xx:26' },
-    { account: 'redditart', collection: 'glitch', freq: '3 hours', run_time: 'xx:26' },
-    { account: 'redditart', collection: 'pictures', freq: '4 hours', run_time: 'xx:26' },
-    { account: 'redditart', collection: 'typography', freq: '4 hours', run_time: 'xx:26' },
-    { account: 'mechanicalkeyboards', collection: 'photos', freq: '4 hours', run_time: 'xx:26' },
-    { account: 'sports', collection: 'photography', freq: '4 hours', run_time: 'xx:26' },
-    { account: 'itookapicture', collection: 'work', freq: '4 hours', run_time: 'xx:26' },
-    { account: 'wallpaper', collection: 'desktops', freq: '4 hours', run_time: 'xx:26' },     
+    { account: 'dataisbeautiful', collection: 'visualizations', freq: '3 hours' },  
+    { account: 'woodworking', collection: 'projects', freq: '3 hours' },
+    { account: 'oldschoolcool', collection: 'photos', freq: '3 hours' },
+    { account: 'graphicdesign', collection: 'visuals', freq: '3 hours' },
+    { account: 'analog', collection: 'photography', freq: '3 hours' },
+    { account: 'redditart', collection: 'glitch', freq: '3 hours' },
+    { account: 'redditart', collection: 'pictures', freq: '4 hours' },
+    { account: 'redditart', collection: 'typography', freq: '4 hours' },
+    { account: 'mechanicalkeyboards', collection: 'photos', freq: '4 hours' },
+    { account: 'sports', collection: 'photography', freq: '4 hours' },
+    { account: 'itookapicture', collection: 'work', freq: '4 hours' },
+    { account: 'wallpaper', collection: 'desktops', freq: '4 hours' },   
+    { account: 'educational', collection: 'gifs', freq: '4 hours' },     
 ];
 
 export default function List() {
