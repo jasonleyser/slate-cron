@@ -9,7 +9,7 @@ const UploadFile = async (props) => {
     const url = `https://uploads.slate.host/api/public/${props.collection}`;
 
     let data = new FormData();
-    data.append("data", buffer, { filename: `${props.screen_name}-reddit.jpeg` });
+    data.append("data", buffer, { filename: `${props.screen_name}-reddit.${props.file_type}` });
     const upload = await Fetch(url, {
         method: 'POST',
         headers: {
@@ -59,23 +59,28 @@ export default function handler(req, res) {
 
     reddit.FetchSubredditPost(subreddit, "hot").then(async (data) => {
 
-        let fileTypes = { "jpg", "jpeg", "png" }
+        console.log(data)
 
-        if(!data.image.endsWith(fileTypes)) {
-            return res.status(200).json({ error: "No image in post" })
+        if(data.image.endsWith("jpg") || data.image.endsWith("jpeg") || data.image.endsWith("png")) {
+            var fileType = data.image.substr(data.image.length - 3);
+            console.log('fileType: ', fileType);
+
+            let upload = await UploadFile({
+                url: data.image,
+                source: data.postLink,
+                created_at: data.createdUtc,
+                screen_name: data.author,
+                description: data.title,
+                subreddit: subreddit,
+                file_type: fileType,
+                api: api,
+                collection: collection,
+            });
+
+            return res.status(200).json({ data: upload })
         }
 
-        let upload = await UploadFile({
-            url: data.image,
-            source: data.postLink,
-            created_at: data.createdUtc,
-            screen_name: data.author,
-            description: data.title,
-            subreddit: subreddit,
-            api: api,
-            collection: collection,
-        });
-
-        return res.status(200).json({ data: upload })
+            return res.status(200).json({ error: "No image in post" })
+        
     });
 };
