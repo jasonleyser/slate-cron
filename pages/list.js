@@ -12,6 +12,8 @@ const users_twitter = [
 ];
 
 const users_reddit = [
+    { account: 'battlestations', collection: 'setups', freq: '3 hours' },
+    { account: 'thesimpsons', collection: 'clips', freq: '3 hours' },  
     { account: 'dataisbeautiful', collection: 'visualizations', freq: '3 hours' },  
     { account: 'woodworking', collection: 'projects', freq: '3 hours' },
     { account: 'oldschoolcool', collection: 'photos', freq: '3 hours' },
