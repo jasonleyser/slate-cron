@@ -1,7 +1,8 @@
 import Head from 'next/head'
 
 const users_twitter = [
-    { account: 'archillect', collection: 'photos', freq: '2 hours' },
+    { account: 'archillect', collection: 'photos', freq: '1 hour' },
+    { account: '11hr11min', collection: 'photos', freq: '1 hour' },
     { account: 'gradient', collection: 'bot', freq: '2 hours' },
     { account: 'moma', collection: 'objects', freq: '4 hours' },
     { account: 'jet', collection: 'photos', freq: '4 hours' },
