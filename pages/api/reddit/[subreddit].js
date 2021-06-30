@@ -46,7 +46,7 @@ export default function handler(req, res) {
     const { query: { subreddit, api, collection }} = req;
 
     if (!subreddit) {
-        return res.status(200).json({ error: 'No username provided' })
+        return res.status(200).json({ error: 'No subreddit provided' })
     }
 
     if (!api) {
