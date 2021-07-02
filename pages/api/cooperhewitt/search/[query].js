@@ -8,7 +8,7 @@ const UploadFile = async (props) => {
     const url = `https://uploads.slate.host/api/public/${props.collection}`;
 
     let data = new FormData();
-    data.append("data", buffer, { filename: `${props.screen_name}-reddit.${props.file_type}` });
+    data.append("data", buffer, { filename: `${props.screen_name}-ch.${props.file_type}` });
     const upload = await Fetch(url, {
         method: 'POST',
         headers: {
@@ -42,7 +42,7 @@ const UploadFile = async (props) => {
 
 const getData = async (props) => {
     let num = Math.floor(Math.random() * props.pages);
-    let cooper = Fetch(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=8f04736a062947e5df2148506bec15ef&query=${props.query}&page=${num}&per_page=20`)
+    let cooper = Fetch(`https://api.collection.cooperhewitt.org/rest/?method=cooperhewitt.search.objects&access_token=${props.access_token}&query=${props.query}&page=${num}&per_page=20`)
     .then(response => {
         return response.json();
     })
@@ -51,7 +51,9 @@ const getData = async (props) => {
 
 export default async function handler(req, res) {
 
-    const { query: { query, api, collection }} = req;
+    const { query: { query, api, collection, access_token }} = req;
+
+    console.log(query)
 
     function objectValues(obj) {
         let vals = [];
@@ -61,7 +63,12 @@ export default async function handler(req, res) {
         return vals;
     }
     
-    let cooper = await getData({ pages: 20, query: query });
+    let cooper = await getData({ pages: 20, query: query, access_token: access_token });
+
+    if(!cooper) {
+        return res.status(200).json({ error: 'empty search result' })
+    }
+
     let object = cooper.objects[Math.floor(Math.random()*cooper.objects.length)];
     let images = object.images[0];   
 
@@ -74,20 +81,29 @@ export default async function handler(req, res) {
         }
     });
 
+    console.log(object)
+    console.log(object.participants)
+    
     let description = `${object.title} - ${object.description}\n\nAccession Number: ${object.accession_number}`;
     let fileType = image.slice(-3);
+
+    let name = 'n/a';
+    if(object.participants) {
+        name = object.participants[0].person_name;
+    }
 
     let upload = await UploadFile({
         url: image,
         source: object.url,
         created_at: object.date,
-        screen_name: object.participants[0].person_name,
+        screen_name: name,
         description: description,
         profileLink: object.participants[0].person_url,
         file_type: fileType,
         api: api,
         collection: collection,
     }); 
+
 
     return res.status(200).json({ data: upload })
     
